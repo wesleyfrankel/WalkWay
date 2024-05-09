@@ -9,6 +9,7 @@ export const Map = () => {
   useEffect(() => {
     const initializeMap = async () => {
       const loader = new Loader({
+        // TODO: Update apiKey to use process.env.NEXT_PUBLIC_MAPS_API_KEY
         apiKey: "AIzaSyCo4mymeRBelldRSbRsM0UeeZ-oWrPkVPk",
         version: "weekly",
       });
