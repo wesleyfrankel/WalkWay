@@ -10,14 +10,11 @@ export const Map = () => {
     const initializeMap = async () => {
       const loader = new Loader({
         // TODO: Update apiKey to use process.env.NEXT_PUBLIC_MAPS_API_KEY
-        // Tester branch
-
         apiKey: "AIzaSyCo4mymeRBelldRSbRsM0UeeZ-oWrPkVPk",
         version: "weekly",
       });
       console.log(process.env.NEXT_PUBLIC_MAPS_API_KEY);
-      console.log("Test");
-      console.log("New Branch");
+
       // Import initial map library
       const { Map } = await loader.importLibrary("maps");
 

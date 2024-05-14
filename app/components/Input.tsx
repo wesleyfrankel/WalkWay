@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import UnitSelect from "./inputHelpers/UnitSelect";
 import TravelData from "./inputHelpers/TravelData";
 import SearchForm from "./inputHelpers/SearchForm";
 
@@ -27,7 +26,6 @@ const Input: React.FC = () => {
   return (
     <div className="col-md-4">
       <SearchForm onSubmit={handleFormSubmit} />
-      <UnitSelect />
       {journeyData && <TravelData journeyData={journeyData} />}
     </div>
   );
