@@ -14,6 +14,7 @@ export const Map = () => {
         version: "weekly",
       });
       console.log(process.env.NEXT_PUBLIC_MAPS_API_KEY);
+
       // Import initial map library
       const { Map } = await loader.importLibrary("maps");
 
