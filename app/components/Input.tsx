@@ -26,6 +26,7 @@ const Input: React.FC = () => {
   return (
     <div className="col-md-4">
       <SearchForm onSubmit={handleFormSubmit} />
+
       {journeyData && <TravelData journeyData={journeyData} />}
     </div>
   );
