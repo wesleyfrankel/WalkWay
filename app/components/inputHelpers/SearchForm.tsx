@@ -2,31 +2,34 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Button, Form } from "react-bootstrap";
 
-interface FormProps {
-  onSubmit: (startingCity: string, destination: string) => void;
+interface SearchFormProps {
+  setStart: React.Dispatch<React.SetStateAction<string>>;
+  setFinish: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchForm: React.FC<FormProps> = ({ onSubmit }) => {
-  const [startingCity, setStartingCity] = useState("");
-  const [destination, setDestination] = useState("");
+const SearchForm: React.FC<SearchFormProps> = ({ setStart, setFinish }) => {
+  const [pointA, setPointA] = useState("");
+  const [pointB, setPointB] = useState("");
   const [formIncomplete, setFormIncomplete] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!startingCity || !destination) {
+    if (!pointA || !pointB) {
       setFormIncomplete(true);
       return;
     }
+    console.log(`SearchForm: pointA = ${pointA} pointB = ${pointB}`);
     setFormIncomplete(false);
-    onSubmit(startingCity, destination);
+    setStart(pointA);
+    setFinish(pointB);
   };
 
-  const handleStartingCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setStartingCity(e.target.value);
+  const handlePointAChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPointA(e.target.value);
   };
 
-  const handleDestinationChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setDestination(e.target.value);
+  const handlePointBChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setPointB(e.target.value);
   };
 
   return (
@@ -36,8 +39,8 @@ const SearchForm: React.FC<FormProps> = ({ onSubmit }) => {
           type="text"
           className="search"
           placeholder="Enter starting city"
-          value={startingCity}
-          onChange={handleStartingCityChange}
+          value={pointA}
+          onChange={handlePointAChange}
         />
       </div>
       <div>
@@ -45,8 +48,8 @@ const SearchForm: React.FC<FormProps> = ({ onSubmit }) => {
           type="text"
           className="search"
           placeholder="Enter destination"
-          value={destination}
-          onChange={handleDestinationChange}
+          value={pointB}
+          onChange={handlePointBChange}
           style={{ marginTop: "16px" }}
         />
       </div>

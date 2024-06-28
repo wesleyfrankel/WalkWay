@@ -6,3 +6,8 @@
   margin-top: 10px;
   width: 200px;
 }
+
+.map-container {
+  height: 50vh;
+  width: 100vh;
+}
